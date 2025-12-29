@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Resume Generator</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.form-section, .resume-section {
+  flex: 1;
+  min-width: 300px;
+  padding: 15px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Resume Style (ATS Friendly) */
+.resume {
+  background: #fff;
+  padding: 20px;
+  color: #000;
+}
+
+.resume h1 {
+  margin-bottom: 5px;
+}
+
+.resume h3 {
+  margin-top: 15px;
+  border-bottom: 1px solid #000;
+  font-size: 16px;
+}
+
+.resume p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Print only resume */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .resume, .resume * {
+    visibility: visible;
+  }
+  .resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- FORM -->
+  <div class="form-section">
+    <h2>Resume Details</h2>
+
+    <input type="text" placeholder="Full Name" oninput="updateResume()">
+    <input type="text" placeholder="Email" oninput="updateResume()">
+    <input type="text" placeholder="Phone" oninput="updateResume()">
+    <input type="text" placeholder="City, Country" oninput="updateResume()">
+
+    <textarea placeholder="Education" rows="3" oninput="updateResume()"></textarea>
+    <textarea placeholder="Work Experience" rows="4" oninput="updateResume()"></textarea>
+    <textarea placeholder="Skills (comma separated)" rows="3" oninput="updateResume()"></textarea>
+
+    <button onclick="downloadPDF()">Download PDF</button>
+  </div>
+
+  <!-- RESUME PREVIEW -->
+  <div class="resume-section">
+    <div class="resume" id="resume">
+      <h1 id="name">Your Name</h1>
+      <p id="contact">Email | Phone | Location</p>
+
+      <h3>Education</h3>
+      <p id="education">Your education details</p>
+
+      <h3>Experience</h3>
+      <p id="experience">Your work experience</p>
+
+      <h3>Skills</h3>
+      <p id="skills">Your skills</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function updateResume() {
+  const inputs = document.querySelectorAll("input, textarea");
+
+  document.getElementById("name").innerText = inputs[0].value || "Your Name";
+  document.getElementById("contact").innerText =
+    (inputs[1].value || "Email") + " | " +
+    (inputs[2].value || "Phone") + " | " +
+    (inputs[3].value || "Location");
+
+  document.getElementById("education").innerText =
+    inputs[4].value || "Your education details";
+
+  document.getElementById("experience").innerText =
+    inputs[5].value || "Your work experience";
+
+  document.getElementById("skills").innerText =
+    inputs[6].value || "Your skills";
+}
+
+function downloadPDF() {
+  window.print();
+}
+</script>
+
+</body>
+</html>
