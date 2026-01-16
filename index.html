@@ -91,48 +91,27 @@ button:hover {
 </head>
 
 <body>
+  <!-- Personal Info Section -->
+<fieldset>
+  <legend>Personal Info</legend>
+  <input type="text" placeholder="Full Name" required>
+  <input type="email" placeholder="Email" required>
+  <input type="tel" placeholder="Phone Number">
+</fieldset>
+
+<!-- Education Section -->
+<fieldset>
+  <legend>Education</legend>
+  <input type="text" placeholder="Degree">
+  <input type="text" placeholder="University">
+  <input type="text" placeholder="Year">
+</fieldset>
 <nav style="padding:10px; text-align:center; background:#f2f2f2;">
   <a href="index.html">Home</a> |
   <a href="about.html">About</a> |
   <a href="privacy.html">Privacy Policy</a> |
   <a href="contact.html">Contact</a>
-</nav>
-<div class="container">
-
-  <!-- FORM -->
-  <div class="form-section">
-    <h2>Resume Details</h2>
-
-    <input type="text" placeholder="Full Name" oninput="updateResume()">
-    <input type="text" placeholder="Email" oninput="updateResume()">
-    <input type="text" placeholder="Phone" oninput="updateResume()">
-    <input type="text" placeholder="City, Country" oninput="updateResume()">
-
-    <textarea placeholder="Education" rows="3" oninput="updateResume()"></textarea>
-    <textarea placeholder="Work Experience" rows="4" oninput="updateResume()"></textarea>
-    <textarea placeholder="Skills (comma separated)" rows="3" oninput="updateResume()"></textarea>
-
-    <button onclick="downloadPDF()">Download PDF</button>
-  </div>
-
-  <!-- RESUME PREVIEW -->
-  <div class="resume-section">
-    <div class="resume" id="resume">
-      <h1 id="name">Your Name</h1>
-      <p id="contact">Email | Phone | Location</p>
-
-      <h3>Education</h3>
-      <p id="education">Your education details</p>
-
-      <h3>Experience</h3>
-      <p id="experience">Your work experience</p>
-
-      <h3>Skills</h3>
-      <p id="skills">Your skills</p>
-    </div>
-  </div>
-
-</div>
+</nav> 
 
 <script>
 function updateResume() {
