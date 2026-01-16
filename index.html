@@ -114,6 +114,20 @@ button:hover {
 </nav> 
 
 <script>
+  <script>
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Example: Personal Info
+  const name = document.querySelector('input[placeholder="Full Name"]').value;
+  doc.text(`Name: ${name}`, 10, 10);
+
+  // Add aur fields yahin likh sakte ho
+
+  doc.save("resume.pdf");
+}
+</script>
 function updateResume() {
   const inputs = document.querySelectorAll("input, textarea");
 
