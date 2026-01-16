@@ -112,7 +112,22 @@ button:hover {
   <a href="privacy.html">Privacy Policy</a> |
   <a href="contact.html">Contact</a>
 </nav> 
+<div class="resume">
+  <h1 id="name">Your Name</h1>
+  <p id="contact">Email | Phone | Location</p>
 
+  <h3>Education</h3>
+  <p id="education">Your education details</p>
+
+  <h3>Experience</h3>
+  <p id="experience">Your work experience</p>
+
+  <h3>Skills</h3>
+  <p id="skills">Your skills</p>
+</div>
+
+<button onclick="updateResume()">Update Resume</button>
+<button onclick="downloadPDF()">Download PDF</button>
 <script>
 function updateResume() {
   const inputs = document.querySelectorAll("input, textarea");
